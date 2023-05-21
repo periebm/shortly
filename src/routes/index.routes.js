@@ -1,8 +1,7 @@
 import { Router } from "express";
-import authRouter from "./loggedOut.routes.js";
+import authRouter from "./auth.routes.js";
 import urlsRouter from "./urls.routes.js";
 import usersRouter from "./users.routes.js";
-import urlsRouter from "./loggedOut.routes.js";
 import rankingRouter from "./ranking.routes.js";
 
 
