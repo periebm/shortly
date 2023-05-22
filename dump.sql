@@ -27,7 +27,7 @@ SET default_table_access_method = heap;
 CREATE TABLE public.tokens (
     id integer NOT NULL,
     token text NOT NULL,
-    "createdAt" date DEFAULT now() NOT NULL,
+    "createdAt" timestamp without time zone DEFAULT now() NOT NULL,
     "userId" integer NOT NULL
 );
 
@@ -61,7 +61,7 @@ CREATE TABLE public.urls (
     url text NOT NULL,
     "shortUrl" text NOT NULL,
     views integer DEFAULT 0 NOT NULL,
-    "createdAt" date DEFAULT now() NOT NULL,
+    "createdAt" timestamp without time zone DEFAULT now() NOT NULL,
     "userId" integer NOT NULL
 );
 
@@ -95,7 +95,7 @@ CREATE TABLE public.users (
     name text NOT NULL,
     email text NOT NULL,
     password text NOT NULL,
-    "createdAt" date DEFAULT now() NOT NULL
+    "createdAt" timestamp without time zone DEFAULT now() NOT NULL
 );
 
 
@@ -144,23 +144,23 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: tokens; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.tokens VALUES (1, 'a4d2ba04-6197-4748-947e-1bde6f0f8fe3', '2023-05-21', 1);
-INSERT INTO public.tokens VALUES (2, '832165e7-21c1-444f-a9a9-0bfcb693ae2b', '2023-05-21', 1);
-INSERT INTO public.tokens VALUES (3, '426c5946-2db0-4a8f-af9f-1205d5c884ac', '2023-05-21', 1);
+INSERT INTO public.tokens VALUES (1, 'a4d2ba04-6197-4748-947e-1bde6f0f8fe3', '2023-05-21 00:00:00', 1);
+INSERT INTO public.tokens VALUES (2, '832165e7-21c1-444f-a9a9-0bfcb693ae2b', '2023-05-21 00:00:00', 1);
+INSERT INTO public.tokens VALUES (3, '426c5946-2db0-4a8f-af9f-1205d5c884ac', '2023-05-21 00:00:00', 1);
 
 
 --
 -- Data for Name: urls; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.urls VALUES (1, 'https://www.github.com/ai/nanoid#comparison-with-uuid', 'CW1VAMQUFA', 0, '2023-05-21', 1);
+INSERT INTO public.urls VALUES (1, 'https://www.github.com/ai/nanoid#comparison-with-uuid', 'CW1VAMQUFA', 0, '2023-05-21 00:00:00', 1);
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.users VALUES (1, 'João', 'joao@driven.com.br', '$2b$10$1wuoS8sXTAJJBl8GyHGNsOkeIf61yFAULUInkTROhf5/ivpYr9dR6', '2023-05-21');
+INSERT INTO public.users VALUES (1, 'João', 'joao@driven.com.br', '$2b$10$1wuoS8sXTAJJBl8GyHGNsOkeIf61yFAULUInkTROhf5/ivpYr9dR6', '2023-05-21 00:00:00');
 
 
 --
