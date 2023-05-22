@@ -43,9 +43,10 @@ export async function shorten(req, res) {
 
 
 export async function deleteUrl(req, res) {
+    const { id } = req.params;
 
     try {
-
+        await db.query(`DELETE FROM urls WHERE id=$1`, [id])
         res.sendStatus(200);
     } catch (err) {
         res.status(500).send(err.message);
