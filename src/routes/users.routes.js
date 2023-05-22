@@ -5,6 +5,6 @@ import { userFilter } from "../middlewares/users.middleware.js";
 
 const usersRouter = Router();
 
-usersRouter.get("/users/me", validateToken, userFilter,getUser);
+usersRouter.get("/users/me", validateToken, userFilter, getUser);
 
 export default usersRouter;

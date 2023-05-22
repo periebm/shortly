@@ -35,7 +35,6 @@ export async function openUrl(req, res, next) {
             UPDATE urls
                 SET views=$1 WHERE "shortUrl"=$2;
         `, [++url.rows[0].views, shortUrl]);
-        console.log(url.rows[0].views);
         res.locals.url = url;
         next();
     } catch (err) {
