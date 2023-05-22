@@ -23,3 +23,22 @@ export async function getUrlId(req, res, next) {
         res.status(500).send(err.message);
     }
 }
+
+export async function openUrl(req, res, next){
+    const { shortUrl } = req.params;
+    
+    try {
+        const url = await db.query(`SELECT * FROM urls WHERE "shortUrl"=$1`, [shortUrl])
+        if (url.rowCount === 0) return res.sendStatus(404);
+
+        await db.query(`
+            UPDATE urls
+                SET views=$1 WHERE "shortUrl"=$2;
+        `,[++url.rows[0].views, shortUrl]);
+        console.log(url.rows[0].views);
+        res.locals.url = url;
+        next();
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+}
